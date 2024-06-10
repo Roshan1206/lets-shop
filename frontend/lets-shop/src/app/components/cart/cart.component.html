@@ -1,0 +1,56 @@
+<div class="containe-fluid px-5 py-5">
+    <div *ngIf="cartItems.length>0" class="row">
+        <div class="col-md-12">
+            <table class="table ">
+                <tr class="table-heading">
+                    <th width="25%"></th>
+                    <th width="50%" style="text-align:center ;">Cart</th>
+                    <th width="25%"></th>
+                </tr>
+                <tr *ngFor="let item of cartItems">
+                    <td><img src="{{ item.productThumbnail }}" class="cart-img"></td>
+                    <td class="table-middle-col">
+                        <div>
+                            <p>{{ item.productName }}</p>
+                            <p>{{ item.productPrice | currency:'INR' }}</p>
+                        </div>
+                        <div class="py-3">
+                            <div>
+                                <button class="btn btn-primary" (click)="onDecrementItem(item)">-</button>
+                                <span class="px-2 mx-2">{{ item.productQuantity }}</span>
+                                <button class="btn btn-primary" (click)="onIncrementItem(item)">+</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-danger px-4 my-3" (click)="onRemoveItem(item)">Remove</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-5">
+                        <p>{{ item.productQuantity*item.productPrice | currency:'INR' }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <p>Total Quantity: {{ totalQuantity }}</p>
+                        <!-- <br> -->
+                        <p>Total Price: {{ totalPrice | currency : "INR"}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="checkout-btn">
+                            <button class="btn btn-primary" routerLink="/user/checkout">Checkout</button>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="cartItems.length===0" class="alert alert-warning">
+        <h3 class="">No items in cart. Please add items...</h3>
+    </div>
+</div>

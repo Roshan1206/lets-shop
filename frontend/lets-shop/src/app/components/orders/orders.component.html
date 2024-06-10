@@ -1,0 +1,37 @@
+<div class="containe-fluid px-5 py-5">
+    <div class="row px-lg-5 mx-lg-5">
+        <div class="col-md-12">
+            <table class="table text-center table-bordered">
+                <h3>Orders History</h3>
+                <tr class="table-heading mx-lg-3">
+                    <th width="20%">Preview</th>
+                    <th width="40%">Details</th>
+                    <th width="20%">Total Price</th>
+                    <th width="20%">Ordered Date</th>
+                </tr>
+                <tr *ngFor="let item of orderItems" class="px-lg-5 mx-lg-5">
+                    <td><img src="{{ item.productThumbnail }}" class="img-thumbnail"></td>
+                    <td>
+                        <section class="table-middle-col">
+                            <div>
+                                <p>{{ item.productName }}</p>
+                            </div>
+                            <div>
+                                <p>Price : {{ item.productPrice }}</p>
+                                <p>Quantity : {{ item.productQuantity }}</p>
+                            </div>
+                        </section>
+                    </td>
+                    <td>
+                        <div>
+                            <p>{{ item.totalPrice }}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <p>{{ item.createdDate| date }}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

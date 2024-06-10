@@ -1,0 +1,16 @@
+<nav class="navbar bg-primary py-md-3 px-md-3 sticky-top">
+    <div class="container-fluid">
+        <!-- <span class="navbar-brand mb-0 h1">lets-shop</span> -->
+        <a class="navbar-brand mb-0 h1" routerLink="/products">lets-shop</a>
+        <app-search></app-search>
+        <div *ngIf="isAuthenticated">
+            <button class="btn btn-outline-light mx-2" routerLink="/user/add-product">Add</button>
+            <button class="btn btn-outline-light mx-2" routerLink="/user/orders">Orders</button>
+            <button class="btn btn-outline-light mx-2" routerLink="/user/cart">Cart</button>
+            <button class="btn btn-outline-light mx-2" routerLink="/products" (click)="onLogout()">Logout</button>
+        </div>
+        <div *ngIf="!isAuthenticated">
+            <button class="btn btn-outline-light mx-2" routerLink="/login">Login</button>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,13 @@
+<div class="container-fluid login">
+    <form [formGroup]="loginForm" (submit)="onLogin()">
+        <div class="form-group py-lg-2">
+            <label for="userEmail" class="form-label">Email</label>
+            <input type="text" id="userEmail" class="form-control" formControlName="userEmail">
+        </div>
+        <div class="form-group py-lg-2">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+        </div>
+        <button class="btn btn-primary">Login</button>
+    </form>
+</div>

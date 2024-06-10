@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-4">
+            <form [formGroup]="addressForm" (submit)="onAddressChange()" #addForm>
+                <div class="form-group">
+                    <label for="country" class="form-label">Country</label>
+                    <select formControlName="country" class="form-control dropdown-toggle" (change)="getStates()">
+                        <option *ngFor="let tempCountry of countries" [ngValue]="tempCountry">
+                            {{ tempCountry.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="state" class="form-label">State</label>
+                    <!-- <input type="text" id="state" class="form-control" formControlName="state"> -->
+                    <select formControlName="state" class="form-control dropdown-toggle">
+                        <option *ngFor="let tempState of states" [ngValue]="tempState">
+                            {{ tempState.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" id="city" class="form-control" formControlName="city">
+                </div>
+                <div class="form-group">
+                    <label for="streetLine1" class="form-label">Street Line 1</label>
+                    <input type="text" id="streetLine1" class="form-control" formControlName="streetLine1">
+                </div>
+                <div class="form-group">
+                    <label for="streetLine2" class="form-label">Street Line 2</label>
+                    <input type="text" id="streetLine2" class="form-control" formControlName="streetLine2">
+                </div>
+                <div class="form-group">
+                    <label for="zipCode2" class="form-label">Zip Code</label>
+                    <input type="number" id="zipCode" class="form-control" formControlName="zipCode">
+                </div>
+                <!-- <button class="btn btn-primary">Proceed</button> -->
+                <ng-template #content let-modal>
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">lets-shop</h4>
+                        <button type="button" class="btn-close" aria-label="Close"
+                            (click)="modal.dismiss('Cross click')"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                Your Order has been placed.
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark"
+                            (click)="modal.close('Save click')">Close</button>
+                    </div>
+                </ng-template>
+                <button class="btn btn-primary" (click)="open(content)">Proceed</button>
+            </form>
+        </div>
+    </div>
+</div>

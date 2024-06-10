@@ -1,0 +1,29 @@
+.cart-img {
+  width: 20vw;
+  height: 20vh;
+}
+
+.table-heading {
+  border-radius: 50%;
+  background-color: cyan;
+  font-size: 2rem;
+}
+
+.table-middle-col {
+  /* padding: 50px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+  background-color: beige;
+}
+
+.checkout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

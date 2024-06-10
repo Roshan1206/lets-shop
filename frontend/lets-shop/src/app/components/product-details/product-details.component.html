@@ -1,0 +1,43 @@
+<div class="container-fluid mx-md-0 my-md-3">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ product.thumbnail }}" class="product-img">
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <tr>
+                    <td>
+                        <h1>{{ product.name }}</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>{{ product.brand }}</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>{{ product.price | currency:'INR' }}</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>{{ product.category }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>{{ product.description }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <button href="#" class="btn btn-primary">Add To Cart</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

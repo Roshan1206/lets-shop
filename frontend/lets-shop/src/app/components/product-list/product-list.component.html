@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row mx-md-3">
+        <div class="col-md-4 mt-3" *ngFor="let product of products">
+            <div class="col-md-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ product.thumbnail }}" class="card-img-top" routerLink="/products/{{ product.id }}"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" routerLink="/products/{{ product.id }}">{{ product.name | slice: 0:25}}
+                        </h5>
+                        <h6 class="card-text">{{ product.brand }}</h6>
+                        <p class="card-text">{{ product.price | currency:'INR'}}</p>
+                        <div class="button-cart d-flex justify-content-between">
+                            <button routerLink="/products/{{ product.id }}" class="btn btn-primary">View
+                                Details</button>
+                            <!-- <i class="bi bi-cart"></i> -->
+                            <button href="#" class="btn btn-primary" (click)="addToCart(product)">Add To Cart</button>
+                            <!-- TODO: Check it later -->
+                            <!-- <i class="fa-solid fa-cart-shopping"></i> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-md-3 mx-2 px-3 my-5">
+        <div class="col-md-9">
+            <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalElements" [maxSize]="5"
+                (pageChange)="handleProductList()" />
+        </div>
+
+        <div class="col-md-3">
+            <span>Page size : </span>
+            <select #pageElements (change)="updatePage(pageElements.value)">
+                <option>10</option>
+                <option selected="true">20</option>
+                <option>40</option>
+            </select>
+        </div>
+    </div>
+</div>
